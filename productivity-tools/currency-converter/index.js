@@ -16,7 +16,7 @@ const startConverter = () => {
 
     const convert = (value) => {
         errorMessage.style.display = 'none'
-        fetch(`https://free.currconv.com/api/v7/convert?apiKey=8126ad9f56c0016343ad&q=${fromCurrency.value}_${toCurrency.value}&compact=y`)
+        fetch(`https://free.currconv.com/api/v7/convert?apiKey=d4cf3228112bfb5a29f5&q=${fromCurrency.value}_${toCurrency.value}&compact=y`)
         .then((response)=>response.json())
         .then((rate)=> {toValue.value = (value * rate[`${fromCurrency.value}_${toCurrency.value}`].val).toFixed(2)})    
         .catch((e)=>console.log(e))
@@ -44,7 +44,7 @@ const startConverter = () => {
     fromValue.oninput = handleChange
     swapButton.onclick = swapCurrencies
 
-    fetch('https://free.currconv.com/api/v7/currencies?apiKey=8126ad9f56c0016343ad')
+    fetch('https://free.currconv.com/api/v7/currencies?apiKey=d4cf3228112bfb5a29f5')
     .then((response)=>response.json())
     .then(({results})=> {
         const frag = document.createDocumentFragment()
