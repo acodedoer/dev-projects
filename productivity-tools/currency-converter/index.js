@@ -1,12 +1,13 @@
 const startConverter = () => {
-    const selectors = document.querySelectorAll('.selector')
+    const selectors = document.querySelectorAll('.currencySelector')
     const toName = document.querySelector('#toName')
     const fromName = document.querySelector('#fromName')
     const toCurrency = document.querySelector('#toCurrency')    
     const fromCurrency = document.querySelector('#fromCurrency')
     const fromValue = document.querySelector('#fromValue')  
     const toValue = document.querySelector('#toValue')
-    const errorMessage = document.querySelector('#errorMessage') 
+    const errorMessage = document.querySelector('#errorMessage')
+    const swapButton = document.querySelector('#swapButton')
 
     const setCurrencies = () =>{
         fromName.innerText = fromCurrency.options[fromCurrency.selectedIndex].dataset.name
@@ -25,11 +26,23 @@ const startConverter = () => {
         !isNaN(fromValue.value) ? convert(fromValue.value) : errorMessage.style.display = 'block'
     }
 
-    toCurrency.onchange = setCurrencies
-    fromCurrency.onchange = setCurrencies
+    const updateAll = () => {
+        setCurrencies()
+        handleChange()
+    }
+
+    const swapCurrencies = () => {
+        const temp = fromCurrency.value
+        fromCurrency.value =toCurrency.value
+        toCurrency.value = temp;
+        updateAll()
+    }
+
+
+    toCurrency.onchange = updateAll
+    fromCurrency.onchange = updateAll
     fromValue.oninput = handleChange
-    fromCurrency.onchange = handleChange
-    toCurrency.onchange = handleChange
+    swapButton.onclick = swapCurrencies
 
     fetch('https://free.currconv.com/api/v7/currencies?apiKey=8126ad9f56c0016343ad')
     .then((response)=>response.json())

@@ -3,13 +3,20 @@
 body{
     margin:0;
     padding: 0;
-    width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     font-family: 'Zilla Slab', serif;
+}
+
+#container{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .info{
@@ -21,24 +28,31 @@ body{
     padding:0.5em;
 }
 
-.selector, .name{
+.currencySelector{
     font-size: 1.5em;
-}
-
-
-select{
     border:0px;
     outline:0px;
     background-color:#488286;
     color:white
 }
 
-#fromName, #toName{
+#fromName, #toName, #swapButton{
     padding:0.5em;
     font-size: 1.5em;
     background-color:#488286;
     margin-bottom: 16px;
     margin-top: 0px;
+    color:white
+}
+
+
+#swapButton{
+    padding:0.5em;
+    font-size: 1.5em;
+    background-color:#488286;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    border-color:#373e40;
     color:white
 }
 
@@ -54,7 +68,7 @@ select{
 }
 
 
-input{
+.valueInput{
     border-style: inset;
     border-color: #b7d5d4;
     border-width: 1px;
@@ -65,7 +79,7 @@ input{
     background-color: #b7d5d4;
 }
 
-#fromForm, #toForm{
+.formContainer{
     width: 500px;
     text-align: left;
     background-color: #373e40;
