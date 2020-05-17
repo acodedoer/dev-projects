@@ -56,6 +56,14 @@ body{
     color:white
 }
 
+#swapButton:hover{
+    border-color: #488286;
+}
+
+#swapButton:active{
+    background-color:#373e40;
+}
+
 #errorMessage{
     display: none;
     padding:0.5em;
